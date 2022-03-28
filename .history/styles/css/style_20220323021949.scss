@@ -1,0 +1,345 @@
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin textClamp($value: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $value;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:root {
+  --tilte-color: #242f51;
+  --text-color: #616368;
+  --button-color: #2500f9;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+.active {
+  background-color: var(--button-color) !important;
+  color: white !important;
+  border-radius: 3rem;
+}
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  background-color: #fdfdfe;
+  padding-top: 9.5rem;
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1.8rem;
+
+    &__menu {
+      display: flex;
+      align-items: stretch;
+    }
+
+    &__item {
+      border-radius: 3rem;
+      background-color: #fdfdfe;
+      &:last-child {
+        margin-left: 3.8rem;
+        & > .header-top__link {
+          padding: 1.8rem 4rem;
+        }
+      }
+
+      &:hover {
+        background-color: var(--button-color);
+        transition: all 0.25s linear;
+        & > * {
+          color: white;
+          transition: all 0.25s linear;
+        }
+      }
+    }
+
+    &__link {
+      display: block;
+      padding: 1.8rem 1.7rem;
+      font-size: 1.6rem;
+      color: var(--tilte-color);
+    }
+  }
+
+  &-logo__link {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fcbd7e;
+    span:last-child {
+      color: var(--tilte-color);
+    }
+  }
+
+  &-content {
+    position: relative;
+    &__bg {
+      max-height: 83.5rem;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-box {
+    max-width: 53rem;
+    position: absolute;
+    top: 50%;
+    left: 16%;
+    transform: translateY(-50%);
+
+    &__top {
+      display: inline-block;
+      display: flex;
+      align-items: center;
+      background-color: #e2eaed;
+      font-size: 1.8rem;
+      border-radius: 2rem;
+      max-width: 36rem;
+    }
+
+    &__icon {
+      background-color: white;
+      color: #feaa25;
+      border-radius: 50%;
+      font-size: 3.5rem;
+    }
+
+    &__text {
+      color: var(--tilte-color);
+      margin-left: 1rem;
+    }
+
+    &__title {
+      font-weight: 600;
+      font-size: 6rem;
+      color: var(--tilte-color);
+      line-height: 1.2;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    &__desc {
+      font-size: 1.8rem;
+      color: var(--text-color);
+      line-height: 1.4;
+      margin-bottom: 4rem;
+
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__button {
+      display: flex;
+      align-items: stretch;
+    }
+    &__submit {
+      border: none;
+      font-size: 1.6rem;
+      background-color: #ccc;
+      padding: 2rem 4rem;
+      color: black;
+      border-radius: 3rem;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--button-color);
+        color: white;
+        transition: all 0.25s linear;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1279px) {
+    &-box {
+      max-width: 45rem;
+      left: 14%;
+
+      &__title {
+        font-size: 5rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    padding-top: 4.5rem;
+    &-top__menu {
+      display: none;
+    }
+    &-box {
+      max-width: 35rem;
+      left: 5%;
+
+      &__icon {
+        font-size: 2.5rem;
+      }
+
+      &__text {
+        font-size: 1.4rem;
+      }
+
+      &__title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+      }
+
+      &__desc {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+      }
+
+      &__button {
+        flex-direction: column;
+      }
+
+      &__submit {
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    &-content__bg {
+      display: none;
+    }
+
+    &-box {
+      transform: none;
+      padding-right: 1.5rem;
+      text-align: center;
+      width: auto;
+
+      &__top {
+        max-width: 27rem;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.brand {
+  padding-top: 11rem;
+  &-text {
+    font-size: 1.6rem;
+    color: var(--tilte-color);
+    text-align: center;
+  }
+
+  &-img {
+    max-width: 93rem;
+    margin: 3rem auto 0;
+  }
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -3rem;
+  padding-top: 16rem;
+
+  &-img {
+    max-width: 61rem;
+  }
+
+  &-content {
+    max-width: 43rem;
+    padding-right: 25rem;
+  }
+
+  &-title {
+    font-size: 3.6rem;
+    color: var(--tilte-color);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
+
+  &-desc {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 9rem;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      margin-bottom: 6rem;
+    }
+
+    &__icon {
+      @include size(9rem);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    &__content {
+      margin-left: 3.5rem;
+    }
+
+    &__title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      &.feature-item__title--blue {
+        color: #2563ff;
+      }
+      &.feature-item__title--red {
+        color: #f55767;
+      }
+      &.feature-item__title--green {
+        color: #40975f;
+      }
+    }
+
+    &__desc {
+      font-size: 1.6rem;
+      color: var(--text-color);
+      line-height: 1.6;
+
+      @include textClamp(3);
+    }
+  }
+}
+
+.feature-img,
+.feature-content {
+  width: 50%;
+  margin-left: 3rem;
+}

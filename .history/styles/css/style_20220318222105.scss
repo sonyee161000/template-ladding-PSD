@@ -1,0 +1,28 @@
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+.container {
+  width: 114rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  background-color: #fdfdfe;
+  &-content {
+    height: 83.5rem;
+    width: 100%;
+    object-fit: cover;
+  }
+}
